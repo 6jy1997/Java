@@ -1,30 +1,25 @@
-import org.junit.Test;
-
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class FileTest {
 
 
-
-    @Test
-    public void testAdd(){
-        System.out.println("run");
-
-    }
+    public static void main(String[] args) throws IOException {
 
 
+        File f1 = new File("1.txt");
 
+        FileOutputStream os1 = new FileOutputStream(f1,true);
 
-    public static void main(String[] args) {
+        os1.write(12);
 
-        String pathSeparator = File.separator;
-        System.out.println(pathSeparator);
-
-
-
+        os1.close();
 
 
 
 
     }
+
+
 }

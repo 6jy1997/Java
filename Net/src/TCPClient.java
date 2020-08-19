@@ -1,7 +1,5 @@
 
 /*
-
-
     TCP通信的客户端：向服务器发送连接请求，给服务器发送数据，读取服务器回写的数据
     表示客户端的类：java.net.Socket（套接字）
     套接字：包含了IP和端口号的网络单位
@@ -27,6 +25,7 @@
  */
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
@@ -38,6 +37,10 @@ public class TCPClient {
         OutputStream os = socket.getOutputStream();
 
         os.write("你好".getBytes());
+        InputStream is = socket.getInputStream();
+        byte[] bytes = new byte[1024];
+        int len = is.read(bytes);
+        System.out.println(new String(bytes,0,len));
 
 
         socket.close();
